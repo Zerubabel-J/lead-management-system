@@ -5,7 +5,17 @@ const router = express.Router();
 // Add a new lead
 router.post("/", async (req, res) => {
   try {
-    const { name, email, status } = req.body;
+    // Validate the request body
+    const validatedData = leadSchema.parse(req.body);
+    const { name, email, status } = validatedData;
+
+    // Check if the email already exists
+    const existingLead = await Lead.findOne({ email });
+    if (existingLead) {
+      return res.status(400).json({ message: "Email already exists" });
+    }
+
+    // Create and save the new lead
     const newLead = new Lead({ name, email, status });
     await newLead.save();
     res.status(201).json(newLead);
