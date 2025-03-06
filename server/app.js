@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 const { dbConfig } = require("./dbConfig/dbConfig");
 const leadRoutes = require("./routes/leadRoutes");
-const errorHandler = require("./utils/errorHandler");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -21,10 +21,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/leads", leadRoutes);
 
-// Error handling middleware
-app.use(errorHandler);
-
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running at port :${PORT}`);
 });

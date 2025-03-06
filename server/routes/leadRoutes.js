@@ -1,7 +1,7 @@
 const express = require("express");
 const Lead = require("../models/Lead");
 const router = express.Router();
-
+const { leadSchema } = require("../utils/validation");
 // Add a new lead
 router.post("/", async (req, res) => {
   try {
