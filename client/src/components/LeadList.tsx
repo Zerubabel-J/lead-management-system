@@ -32,6 +32,7 @@ const LeadList: React.FC<LeadListProps> = ({
           Swal.fire("Deleted!", "The lead has been deleted.", "success");
         } catch (error) {
           Swal.fire("Error!", "Failed to delete the lead.", "error");
+          console.log(error);
         }
       }
     });

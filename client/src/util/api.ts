@@ -3,7 +3,7 @@ import { Lead, ApiResponse } from "../types/lead";
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "https://lead-management-system-gfdt.onrender.com/api";
+  "https://lead-management-system-gfdt.onrender.com/apihttps://lead-management-system-gfdt.onrender.com/api";
 
 const api = axios.create({
   baseURL: API_URL,
@@ -19,8 +19,8 @@ export const addLead = async (
   try {
     const response = await api.post("/leads", leadData);
     return response.data;
-  } catch (error: any) {
-    throw error.response.data;
+  } catch (error) {
+    throw error;
   }
 };
 
@@ -29,8 +29,8 @@ export const getLeads = async (): Promise<ApiResponse> => {
   try {
     const response = await api.get("/leads");
     return response.data;
-  } catch (error: any) {
-    throw error.response.data;
+  } catch (error) {
+    throw error;
   }
 };
 // Fetch a single lead
@@ -39,8 +39,8 @@ export const getLead = async (leadId: string): Promise<ApiResponse> => {
     const response = await api.get(`/leads/${leadId}`);
     console.log("Singleee", response.data);
     return response.data;
-  } catch (error: any) {
-    throw error.response.data;
+  } catch (error) {
+    throw error;
   }
 };
 // Update a lead
@@ -51,8 +51,8 @@ export const updateLead = async (
   try {
     const response = await api.put(`/leads/${leadId}`, leadData);
     return response.data;
-  } catch (error: any) {
-    throw error.response.data;
+  } catch (error) {
+    throw error;
   }
 };
 
@@ -61,7 +61,7 @@ export const deleteLead = async (leadId: string): Promise<ApiResponse> => {
   try {
     const response = await api.delete(`/leads/${leadId}`);
     return response.data;
-  } catch (error: any) {
-    throw error.response.data;
+  } catch (error) {
+    throw error;
   }
 };
