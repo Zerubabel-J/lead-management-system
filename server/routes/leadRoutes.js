@@ -65,4 +65,46 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Fetch a single lead
+router.get("/:id", async (req, res) => {
+  try {
+    const lead = await Lead.findById(req.params.id);
+    if (!lead) {
+      return res.status(404).json({ message: "Lead not found" });
+    }
+    res.status(200).json(lead);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const { name, email, status } = req.body;
+    const lead = await Lead.findByIdAndUpdate(
+      req.params.id,
+      { name, email, status },
+      { new: true }
+    );
+    if (!lead) {
+      return res.status(404).json({ message: "Lead not found" });
+    }
+    res.status(200).json({ message: "Lead updated successfully", lead });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const lead = await Lead.findByIdAndDelete(req.params.id);
+    if (!lead) {
+      return res.status(404).json({ message: "Lead not found" });
+    }
+    res.status(200).json({ message: "Lead deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router;
