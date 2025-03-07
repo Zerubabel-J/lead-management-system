@@ -7,7 +7,9 @@ This guide provides instructions to set up and run the Next.js frontend and Node
 Ensure you have the following installed:
 
 Node.js (v16 or later)
+
 npm
+
 MongoDB (local or cloud, e.g., MongoDB Atlas)
 
 # Installation
@@ -51,4 +53,4 @@ npm run dev
 # Live Demo
 
 Check out the deployed project here:
-👉 https://lead-management-system.vercel.app/
+👉 https://lead-management-system-gamma.vercel.app/
