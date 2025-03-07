@@ -71,7 +71,9 @@ const EditLead = ({ params }: { params: Promise<{ id: string }> }) => {
   };
 
   if (loading) {
-    return <div>Loading lead data...</div>;
+    return (
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+    );
   }
 
   return (
@@ -119,7 +121,7 @@ const EditLead = ({ params }: { params: Promise<{ id: string }> }) => {
 
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+          className="bg-blue-500 w-full text-white px-4 py-2 rounded-lg hover:bg-blue-600"
         >
           Update Lead
         </button>
