@@ -3,12 +3,11 @@ import { Lead } from "@/types/lead";
 import Swal from "sweetalert2";
 import Link from "next/link";
 import { deleteLead } from "@/util/api";
-import { useState, useEffect } from "react";
 
 interface LeadListProps {
   leads: Lead[];
   onLeadDeleted: () => void;
-  isLoading: boolean; // Add isLoading prop
+  isLoading: boolean;
 }
 
 const LeadList: React.FC<LeadListProps> = ({
