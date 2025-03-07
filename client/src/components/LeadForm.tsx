@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { addLead } from "@/util/api";
 import { Lead } from "@/types/lead";
 
