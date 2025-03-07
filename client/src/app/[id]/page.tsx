@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import { getLead, updateLead } from "@/util/api";
 import { Lead } from "@/types/lead";
-import React from "react"; /
+import React from "react";
 
 const EditLead = ({ params }: { params: Promise<{ id: string }> }) => {
   const router = useRouter();
